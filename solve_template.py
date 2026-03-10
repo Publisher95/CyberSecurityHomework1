@@ -6,9 +6,10 @@ def solve(ciphertext):
 
     with open(ciphertext, "rb") as f:
         data = f.read()
-
-    if len(data) % 16 != 0:
-        data += "00" * (16 - (len(data) % 16))
+    
+    
+    if len(data) % 32 != 0:
+        data += "0" * (32 - (len(data) % 32))
 
 
     chunks = [data[i:i+16].hex() for i in range(0,len(data), 16)]
